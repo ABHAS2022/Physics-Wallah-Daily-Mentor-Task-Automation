@@ -33,8 +33,7 @@ As a mentor at Physics Wallah, one of my key responsibilities was to send three 
    ```bash
    python3 mainapp.py
 
-Chat Platforms: Modify the script to include the chat platforms you use and configure the upload settings.
-:
+
 License
 This project is licensed under the MIT License. Search the [LICENSE](https://opensource.org/license/MIT) file on the search engine for details.
 
