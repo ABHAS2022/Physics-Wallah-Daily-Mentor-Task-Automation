@@ -1,14 +1,17 @@
 import time
 import requests
+import os
 from selenium import webdriver
+from dotenv import load_dotenv
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-NUMBER_OF_QUESTIONS = 4
-TEXT_TO_BE_SENT_WITH_PDF = 'Here is some reference material that could help'
+load_dotenv()
+NUMBER_OF_QUESTIONS = os.getenv('NUMBER_OF_DAILY_QUESTIONS_TO_SEND')
+TEXT_TO_BE_SENT_WITH_PDF = os.getenv('MESSAGE_TO_BE_ZEZNT_ALONG_WITH_DAILY_PDF')
 
 def daily_questions(driver, filenames):
     """
