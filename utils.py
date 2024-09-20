@@ -9,9 +9,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-load_dotenv()
-NUMBER_OF_QUESTIONS = os.getenv('NUMBER_OF_DAILY_QUESTIONS_TO_SEND')
-TEXT_TO_BE_SENT_WITH_PDF = os.getenv('MESSAGE_TO_BE_ZEZNT_ALONG_WITH_DAILY_PDF')
+env_path = './paths_and_chats.env'
+load_dotenv(dotenv_path=env_path)
+NUMBER_OF_QUESTIONS = int(os.getenv('NUMBER_OF_DAILY_QUESTIONS_TO_SEND'))
+TEXT_TO_BE_SENT_WITH_PDF = os.getenv('MESSAGE_TO_BE_SENT_ALONG_WITH_DAILY_PDF')
+
 
 def daily_questions(driver, filenames):
     """
@@ -187,6 +189,7 @@ def perform_operation(website, files, pdf_path, quote):
         switchiframe(driver)
     except:
         driver.get(website)
+        switchiframe(driver)
 
     print("Sending DailY Inspirational Quote")
     sending_quotes(website=website,driver=driver,quote=quote)
